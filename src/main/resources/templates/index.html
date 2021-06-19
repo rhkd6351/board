@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+</head>
+<body>
+  <h1>Lim-Bae Board Service</h1>
+  <div>
+      <h2>RESTful API</h2>
+      <table border="1px solid black">
+          <tr style="text-align: center">
+              <td>CRUD</td>
+              <td>Http Verbs</td>
+              <td>Route</td>
+              <td>return</td>
+              <td>요청변수</td>
+          </tr>
+          <tr>
+              <td>전체 post 내용을 표시</td>
+              <td>GET</td>
+              <td>/board/posts</td>
+              <td>[{"postId": 2,<br/>
+                  "title": "post title",<br/>
+                  "content": "post content",<br/>
+                  "regDate": "2001-01-01T01:23:45.000+00:00",<br/>
+                  "modDate": "2001-01-02T01:23:45.000+00:00",<br/>
+                  "readCount": 21}, {} ...]</td>
+              <td>x</td>
+          </tr>
+          <tr>
+              <td>선택 id 포스트 내용을 표시</td>
+              <td>GET</td>
+              <td>/board/post/:postId</td>
+              <td>{"postId": 2,<br/>
+                  "title": "post title",<br/>
+                  "content": "post content",<br/>
+                  "regDate": "2001-01-01T01:23:45.000+00:00",<br/>
+                  "modDate": "2001-01-02T01:23:45.000+00:00",<br/>
+                  "readCount": 21}</td>
+              <td>postId: Long</td>
+          </tr>
+          <tr>
+              <td>post를 생성</td>
+              <td>POST</td>
+              <td>/board/post</td>
+              <td>{"postId": 42}</td>
+              <td>title: String <br/>
+                  content: String</td>
+          </tr>
+          <tr>
+              <td>선택 post를 수정</td>
+              <td>PUT</td>
+              <td>/board/post</td>
+              <td>{"success": true or false}</td>
+              <td>postId: Long <br/>
+                  title: String <br/>
+                  content: String</td>
+          </tr>
+          <tr>
+              <td>선택 post를 삭제</td>
+              <td>DELETE</td>
+              <td>/board/post</td>
+              <td>{"success": true or false}</td>
+              <td>postId: Long</td>
+          </tr>
+      </table>
+  </div>
+  <div>
+      <h2>Test</h2>
+      <ul>
+          <li><a href="./board/posts">전체 게시글 표시</a></li>
+          <li><a href="./board/post?postId=3">선택 게시글 표시</a></li>
+          <li>
+              <form method="post" action="./board/post">
+                  게시글 입력<br/>
+                  Title:<input type="text" name="title"/><br>
+                  Content:<input type="text" name="content"/><br>
+                  <input type="submit">
+              </form>
+          </li>
+      </ul>
+  </div>
+  <p>email: waspy@naver.com</p>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+[
+  {
+    "postId": 2,
+    "title": "hello",
+    "content": "wow",
+    "regDate": "2021-06-18T11:40:33.000+00:00",
+    "modDate": null,
+    "readCount": 0
+  },
+  {
+    "postId": 3,
+    "title": "hello",
+    "content": "wow",
+    "regDate": "2021-06-18T11:40:39.000+00:00",
+    "modDate": null,
+    "readCount": 0
+  },
+  {
+    "postId": 4,
+    "title": "hello",
+    "content": "wow",
+    "regDate": "2021-06-18T11:40:46.000+00:00",
+    "modDate": null,
+    "readCount": 0
+  },
+  {
+    "postId": 8,
+    "title": "test title",
+    "content": "test content",
+    "regDate": "2021-06-19T05:17:32.000+00:00",
+    "modDate": "2021-06-19T14:19:56.000+00:00",
+    "readCount": 0
+  },
+  {
+    "postId": 9,
+    "title": "test title",
+    "content": "test content",
+    "regDate": "2021-06-19T05:21:58.000+00:00",
+    "modDate": "2021-06-19T05:21:58.000+00:00",
+    "readCount": 0
+  }
+]
