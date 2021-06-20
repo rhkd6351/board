@@ -34,17 +34,6 @@ public class PostRepositoryTest {
 
     }
 
-    @Test
-    void delete() {
-        //given
-        Long id = 1L;
-
-        //when
-        assertThat(postRepository.delete(id)).isEqualTo(true);
-
-        //then
-        assertThat(postRepository.findById(1L).isEmpty()).isEqualTo(true);
-    }
 
     @Test
     public void find() {

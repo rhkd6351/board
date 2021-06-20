@@ -53,7 +53,9 @@ public class JpaPostRepository implements PostRepository{
     public boolean delete(Long id) {
         Optional<PostVO> post = this.findById(id);
         if(post.isPresent()){
+            em.getTransaction().begin();
             em.remove(post.get());
+            em.getTransaction().commit();
             return true;
         }else{
             return false;

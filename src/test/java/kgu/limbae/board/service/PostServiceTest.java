@@ -31,15 +31,4 @@ public class PostServiceTest {
         assertThat(post).isNotEmpty();
     }
 
-    @Test
-    public void findAllTest() {
-        //given
-        List<PostVO> list;
-
-        //when
-        list = postService.findAllPosts();
-
-        //then
-        assertThat(list.size()).isEqualTo(5);
-    }
 }
