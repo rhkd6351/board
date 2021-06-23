@@ -37,7 +37,7 @@ public class BoardController {
 
     @PostMapping(value="/post")
     @ResponseBody
-    public Long insertPost(InsertPostDTO dto){
+    public Long insertPost(@RequestBody InsertPostDTO dto){
         PostVO vo = new PostVO();
         vo.setTitle(dto.getTitle());
         vo.setContent(dto.getContent());
@@ -53,7 +53,7 @@ public class BoardController {
 
     @PutMapping("/post")
     @ResponseBody
-    public boolean updatePost(UpdatePostDTO postDTO){
+    public boolean updatePost(@RequestBody UpdatePostDTO postDTO){
         PostVO vo = new PostVO();
         vo.setPostId(postDTO.getPostId());
         vo.setTitle(postDTO.getTitle());
