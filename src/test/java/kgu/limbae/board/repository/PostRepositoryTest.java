@@ -38,7 +38,7 @@ public class PostRepositoryTest {
     @Test
     public void find() {
         //given
-        Long id = 2L;
+        Long id = 3L;
 
         //when
         assertThat(postRepository.findById(id)).isNotEmpty();

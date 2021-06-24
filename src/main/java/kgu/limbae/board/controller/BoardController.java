@@ -47,7 +47,7 @@ public class BoardController {
 
     @DeleteMapping(value = "/post")
     @ResponseBody
-    public boolean deletePost(Long id){
+    public boolean deletePost(@RequestParam(name = "postId") Long id){
         return postService.remove(id);
     }
 
