@@ -1,6 +1,7 @@
 package kgu.limbae.board.controller;
 
 import kgu.limbae.board.domain.PostVO;
+import kgu.limbae.board.dto.DeletePostDTO;
 import kgu.limbae.board.dto.InsertPostDTO;
 import kgu.limbae.board.dto.UpdatePostDTO;
 import kgu.limbae.board.service.PostService;
@@ -47,8 +48,8 @@ public class BoardController {
 
     @DeleteMapping(value = "/post")
     @ResponseBody
-    public boolean deletePost(@RequestParam(name = "postId") Long id){
-        return postService.remove(id);
+    public boolean deletePost(@RequestBody DeletePostDTO dto){
+        return postService.remove(dto.getPostId());
     }
 
     @PutMapping("/post")
