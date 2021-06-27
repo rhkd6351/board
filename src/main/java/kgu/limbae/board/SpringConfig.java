@@ -1,6 +1,5 @@
 package kgu.limbae.board;
 
-import kgu.limbae.board.repository.JpaPostRepository;
 import kgu.limbae.board.repository.PostRepository;
 import kgu.limbae.board.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +20,14 @@ public class SpringConfig {
         this.emf = emf;
     }
 
-    @Bean
-    public PostService postService() {
-        return new PostService(postRepository());
-    }
+//    @Bean
+//    public PostService postService() {
+//        return new PostService(postRepository());
+//    }
 
 
-    @Bean
-    public PostRepository postRepository() {
-        return new JpaPostRepository(emf.createEntityManager());
-    }
+//    @Bean
+//    public PostRepository postRepository() {
+//        return new PostRepository(emf.createEntityManager());
+//    }
 }

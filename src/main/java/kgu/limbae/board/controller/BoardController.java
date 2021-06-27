@@ -52,13 +52,15 @@ public class BoardController {
 
     @DeleteMapping(value = "/post")
     @ResponseBody
-    public boolean deletePost(@RequestBody DeletePostDTO dto){
-        return postService.remove(dto.getPostId());
+    public void deletePost(@RequestBody DeletePostDTO dto){
+        PostVO vo = new PostVO();
+        vo.setPostId(dto.getPostId());
+        postService.remove(vo);
     }
 
     @PutMapping("/post")
     @ResponseBody
-    public boolean updatePost(@RequestBody UpdatePostDTO postDTO){
+    public PostVO updatePost(@RequestBody UpdatePostDTO postDTO){
         PostVO vo = new PostVO();
         vo.setPostId(postDTO.getPostId());
         vo.setTitle(postDTO.getTitle());
