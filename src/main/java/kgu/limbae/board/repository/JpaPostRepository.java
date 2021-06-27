@@ -38,8 +38,9 @@ public class JpaPostRepository implements PostRepository{
 
     @Override
     public List<PostVO> findAll() {
-
+        em.getTransaction().begin();
         List<PostVO> list = em.createQuery("select p from posts p", PostVO.class).getResultList();
+        em.getTransaction().commit();
 
         return list;
     }
