@@ -22,6 +22,7 @@ public class JpaPostRepository implements PostRepository{
             em.persist(postVO);
             em.getTransaction().commit();
         }catch (Exception e){
+            e.printStackTrace();
             em.getTransaction().rollback();
         }
 
@@ -53,6 +54,7 @@ public class JpaPostRepository implements PostRepository{
 
             return true;
         }catch (Exception e){
+            e.printStackTrace();
             em.getTransaction().rollback();
             return false;
         }
@@ -62,12 +64,17 @@ public class JpaPostRepository implements PostRepository{
     public boolean delete(Long id) {
         Optional<PostVO> post = this.findById(id);
         if(post.isPresent()){
-            em.getTransaction().begin();
-            em.remove(post.get());
-            em.getTransaction().commit();
-            return true;
+            try{
+                em.getTransaction().begin();
+                em.remove(post.get());
+                em.getTransaction().commit();
+                return true;
+            }catch (Exception e){
+                e.printStackTrace();
+                em.getTransaction().rollback();
+                return false;
+            }
         }else{
-            em.getTransaction().rollback();
             return false;
         }
     }

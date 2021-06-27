@@ -43,6 +43,10 @@ public class BoardController {
         vo.setTitle(dto.getTitle());
         vo.setContent(dto.getContent());
 
+        if(dto.getContent() == null || dto.getContent().equals("") || dto.getTitle().equals("") || dto.getTitle() == null){
+            return -1L;
+        }
+
         return postService.join(vo);
     }
 
