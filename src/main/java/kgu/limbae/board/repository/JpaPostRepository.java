@@ -21,6 +21,7 @@ public class JpaPostRepository implements PostRepository{
             em.getTransaction().begin();
             em.persist(postVO);
             em.getTransaction().commit();
+            em.clear();
         }catch (Exception e){
             e.printStackTrace();
             em.getTransaction().rollback();
@@ -51,7 +52,7 @@ public class JpaPostRepository implements PostRepository{
             postVO.setTitle(vo.getTitle());
             postVO.setContent(vo.getContent());
             em.getTransaction().commit();
-
+            em.clear();
             return true;
         }catch (Exception e){
             e.printStackTrace();
@@ -68,6 +69,7 @@ public class JpaPostRepository implements PostRepository{
                 em.getTransaction().begin();
                 em.remove(post.get());
                 em.getTransaction().commit();
+                em.clear();
                 return true;
             }catch (Exception e){
                 e.printStackTrace();
