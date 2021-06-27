@@ -38,7 +38,7 @@ public class PostRepositoryTest {
     @Test
     public void find() {
         //given
-        Long id = 3L;
+        Long id = 42L;
 
         //when
         assertThat(postRepository.findById(id)).isNotEmpty();
@@ -47,7 +47,7 @@ public class PostRepositoryTest {
     @Test
     public void postUpdate(){
         //given
-        final Long id = 3L;
+        final Long id = 42L;
 
         PostVO newVO = new PostVO();
         newVO.setPostId(id);

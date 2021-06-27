@@ -17,9 +17,13 @@ public class JpaPostRepository implements PostRepository{
 
     @Override
     public PostVO save(PostVO postVO) {
-        em.getTransaction().begin();
-        em.persist(postVO);
-        em.getTransaction().commit();
+        try{
+            em.getTransaction().begin();
+            em.persist(postVO);
+            em.getTransaction().commit();
+        }catch (Exception e){
+            em.getTransaction().rollback();
+        }
 
         return postVO;
     }
@@ -32,7 +36,10 @@ public class JpaPostRepository implements PostRepository{
 
     @Override
     public List<PostVO> findAll() {
-        return em.createQuery("select p from posts p", PostVO.class).getResultList();
+
+        List<PostVO> list = em.createQuery("select p from posts p", PostVO.class).getResultList();
+
+        return list;
     }
 
     @Override
@@ -43,8 +50,10 @@ public class JpaPostRepository implements PostRepository{
             postVO.setTitle(vo.getTitle());
             postVO.setContent(vo.getContent());
             em.getTransaction().commit();
+
             return true;
         }catch (Exception e){
+            em.getTransaction().rollback();
             return false;
         }
     }
@@ -58,6 +67,7 @@ public class JpaPostRepository implements PostRepository{
             em.getTransaction().commit();
             return true;
         }else{
+            em.getTransaction().rollback();
             return false;
         }
     }

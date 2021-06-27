@@ -21,7 +21,7 @@ public class PostServiceTest {
     @Test
     public void findOneTest() {
         //given
-        Long id = 3L;
+        Long id = 42L;
         Optional<PostVO> post;
 
         //when
